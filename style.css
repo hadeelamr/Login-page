@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    background-image: url(http://ift.tt/1wF9xOv.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  .container{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items:center ;
+  }
+  .form{
+    width: 350px;
+    height: 450px;
+    background-color: rgba(41, 39, 39, 0.3);
+    box-shadow: 0 5px 30px black;
+  }
+  .btn button {
+    padding: 3px;
+    margin: 30px 0px 40px 30px;
+    border-style: none;
+    background-color: transparent;
+    color: rgb(17, 17, 16);
+    font-size: 18px;
+    font-weight: 550;
+  }
+  .x{
+    display: flex;
+    justify-content: center;
+  }
+  .x input{
+    border: none;
+    width: 80%;
+    border-bottom: 2px solid white;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    background-color: transparent;
+    color: white;
+  }
+  input:focus {
+    outline: none ;
+    border-bottom: 2px solid rgb(77, 226, 117);
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+  }
+  ::placeholder {
+    color: white;
+  }
+  .checkBox{
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+  }
+   
+  #checkbox{
+    margin-right: 10px;
+    height: 15px;
+    width: 15px;
+  }
+  .text{
+    color: rgb(199, 197, 197);
+    font-size: 13px;
+  }
+  .btn2{
+    padding: 10px;
+    width: 150px;
+    border-radius: 20px;
+    background-color: rgb(10, 136, 43);
+    border-style: none;
+    color: white;
+    font-weight: 600;
+  }
+  .btn2:hover{
+    background-color: rgba(24, 145, 226, 0.5);
+  }
+  .btn button:hover{
+    border-bottom: 2px solid rgb(91, 243, 131);
+  }
+  .login{
+    display: none;
+  }
+  .login{
+    margin-top: 40px;
+  }
+  .login .checkBox{
+    margin-top: 30px !important;
+  }
+  .fa{
+    padding: 10px 20px;
+    color: #8b8989;
+}
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  .fa-google {
+    background: #dd4b39;
+    color: white;
+  }
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+.fa-facebook,.fa-google,.fa-linkedin{
+    margin-left: 50px;
+    margin-top: 30px;
+    padding: 5px;
+    width: 50px;
+    text-align: center;
+}
