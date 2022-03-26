@@ -1,45 +1,36 @@
-const express=require('express') 
-const app=express()
+const express=require("express");
+const path =require('path');
+const mysql =require("mysql");
+const dotenv=require('dotenv');
 
-app.set('view-engine')
-app.get('/',(req,res)=>{
-    res.render('index.ejs',{user})
+dotenv.config({path: './.env'});
+
+const app=express();
+
+const db=mysql.createConnection({
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE
+});
+const publicDirectory=path.join(__dirname,'./public');
+app.use(express.static(publicDirectory));
+console.log(__dirname);
+app.set('view engine','hbs');
+db.connect((error)=>{
+if(error){
+    console.log(error)
+}
+    else{console.log("MYSQL connect...")
+
+    }
+
+});
+
+//Define  routes
+app.use('/',require('./routes/pages'));
+app.use('/auth', require('./routes/auth'));
+
+app.listen(5001,()=>{
+    console.log("Server Started om Port 5001");
 })
-
-const bodyparser=require('body-parser')
-const mysql=require('mysql')
-const res = require('express/lib/response')
-
-const port=process.env.port || 5000
-app.use(bodyparser.urlencoded({extended: false}))
-
-app.use(bodyparser.json())
-
-// mysql
-const pool=mysql.createPool({
-    connectionLimit:10, 
-    host:'localhost',
-    user:'root',
-    password:'password',
-    database:'nodejs-beers',
-})
-//Get all beers
-app.get('',(req,res)=>{
-    pool.getConnection((err,connection)=> {
-        if(err)throw err
-        console.log('connected as email ${connection.threadEmail}')
-        connection.query('SELECT8 from beers', (err,rows)=>{
-            connection.release()//return the connection to pool
-            
-            if(!err){
-                res.send(rows)
-            }
-            else {
-                console.log(err)
-            }
-        })
-    })
-})
-//Get a beer by
-//listen on enviroment port or 5000
-app.listen(port,() => console.log('Listen on port ${port}'))

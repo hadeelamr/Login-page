@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Welcome</title>
+</head>
+ 
+<body>
+  <div class="container">
+    <div class="form">
+      <div class="btn">
+        <button class="signUpBtn">Sign Up</button>
+        <button class="loginBtn">Log In</button>
+      </div>
+
+      <form class="signUp" action="/auth/register" method="POST" >
+        <div class="x">
+          <input type="text"  id="userName" placeholder="User Name" name="userName">
+        </div>
+
+        <div class="x">
+          <input type="email" placeholder="Email" name="email">
+        </div>
+
+        <div class="x">
+          <input type="password" id="password" placeholder="Password" name="password">
+        </div>
+
+        <div class="x">
+          <input type="password" id="confirmPassword" placeholder="Confirm Password" name="passwordConfirm">
+        </div>
+
+        <div class="x">
+          <input type="checkbox" name="checkbox" id="checkbox">
+          <span class="text">I agree with term & conditions</span>
+        </div>
+
+        <div class="x">
+          <button type="button" class="btn2">Rrgister</button>
+        </div>
+      </form>
+      {{#if message }}
+        
+      <form class="login">
+        <div class="x">
+          <input type="email" placeholder="Email " name="email">
+        </div>
+
+        <div class="x">
+          <input type="password" id="password" placeholder="Password" name="password"> 
+        </div>
+
+        <div class="x">
+          <input type="checkbox" name="checkbox" id="checkbox">
+          <span class="text">Keep me signed in on this device</span>
+        </div>
+
+        <div class="x">
+          <button type="button" class="btn2">Register</button>
+        </div>
+        <i class="fa fa-facebook" style="font-size:24px"></i>
+        <i class="fa fa-google" style="font-size:24px"></i>
+        <i class="fa fa-linkedin" style="font-size:24px"></i>
+      </form>
+    </div>
+  </div>
+ 
+  <script src="jQuery.js"></script>
+  <script>
+      $('.signUpBtn').click(function(){
+        $('.login').hide();
+        $('.signUp').show();
+        $('.signUpBtn').css({'border-bottom' : '2px solid #ff4141'});
+        $('.loginBtn').css({'border-style' : 'none'});
+    });
+
+    $('.loginBtn').click(function(){
+        $('.login').show();
+        $('.signUp').hide();
+        $('.loginBtn').css({'border-bottom' : '2px solid #ff4141'});
+        $('.signUpBtn').css({'border-style' : 'none'});
+    });
+    </script>
+
+</body>
+</html>
